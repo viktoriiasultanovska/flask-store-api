@@ -1,8 +1,7 @@
-import secrets
-
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
 
 from db import db
 from blocklist import BLOCKLIST
@@ -27,9 +26,10 @@ def create_app(db_url=None):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["PROPAGATE_EXCEPTIONS"] = True
     db.init_app(app)
+    migrate = Migrate(app, db)
     api = Api(app)
 
-    app.config["JWT_SECRET_KEY"] = secrets.SystemRandom().getrandbits(128)
+    app.config["JWT_SECRET_KEY"] = "jose"
     jwt = JWTManager(app)
 
     # @jwt.additional_claims_loader
@@ -92,12 +92,6 @@ def create_app(db_url=None):
             401,
         )
 
-    # JWT configuration ends
-
-    with app.app_context():
-        import models  # noqa: F401
-
-        db.create_all()
 
     api.register_blueprint(UserBlueprint)
     api.register_blueprint(ItemBlueprint)
