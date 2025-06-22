@@ -31,3 +31,4 @@ create
 the tables using the existing model definitions.
 
 https://rest-api-flask-store-rx6p.onrender.com
+https://rest-api-flask-store-rx6p.onrender.com/swagger-ui
