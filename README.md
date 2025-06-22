@@ -1,5 +1,3 @@
-docker compose up --build --force-recreate --no-deps
-
 ## Initialize the database with Flask-Migrate
 Activate your virtual environment and run this command:
 
