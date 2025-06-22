@@ -29,3 +29,5 @@ Now let's actually apply the migration:
 This will create the ```data.db``` file. If you were using another RDBMS (like PostgreSQL or MySQL), this command would
 create
 the tables using the existing model definitions.
+
+https://rest-api-flask-store-rx6p.onrender.com
