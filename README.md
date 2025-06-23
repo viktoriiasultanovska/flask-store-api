@@ -32,3 +32,17 @@ the tables using the existing model definitions.
 
 https://rest-api-flask-store-rx6p.onrender.com
 https://rest-api-flask-store-rx6p.onrender.com/swagger-ui
+
+## How to run the database migrations in your compose container
+
+To run the command, you should:
+
+- First run the compose file with ```docker compose up -d```
+
+- Then run the database upgrade command with ```docker compose exec web flask db upgrade```.
+
+Database user: postgres
+Database password: password
+Database host: localhost
+Database port: 5432 (this is the port in your local machine)
+Database name: myapp

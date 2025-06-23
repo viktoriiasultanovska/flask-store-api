@@ -7,3 +7,5 @@ python-dotenv
 gunicorn
 Flask-Migrate
 gunicorn
+psycopg2-binary
+python-dotenv
